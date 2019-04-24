@@ -4,6 +4,7 @@ import {fetchPostsId} from "../../store/actions/postActions";
 import PostByIdItem from "../../components/PostByIdItem/PostByIdItem";
 import {fetchComments} from "../../store/actions/commentsActions";
 import Comments from "../../components/Comments/Comments";
+import AddComment from "../../components/AddComment/AddComment";
 
 class PostById extends Component {
     componentDidMount() {
@@ -34,9 +35,10 @@ class PostById extends Component {
                     <Comments
                         key={comment._id}
                         user={comment.user.username}
-                        text={comment.text}
+                        comment={comment.comment}
                         onClick={() => this.getPost(post._id)}/>
                 ))}
+                <AddComment/>
             </Fragment>
         );
     }
