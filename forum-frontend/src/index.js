@@ -9,6 +9,7 @@ import * as serviceWorker from './serviceWorker';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
+import postReducer from "./store/reducers/postReducer";
 import userReducer from "./store/reducers/userReducer";
 
 
@@ -37,6 +38,7 @@ const history = createBrowserHistory();
 
 const rootReducer = combineReducers({
     router: connectRouter(history),
+    post: postReducer,
     user: userReducer
 });
 
