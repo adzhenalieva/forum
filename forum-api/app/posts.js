@@ -20,13 +20,13 @@ const upload = multer({storage});
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    Post.find().sort({datetime: 1})
+    Post.find().sort({datetime: 1}).populate('user')
         .then(posts => {res.send(posts)})
         .catch(() => res.sendStatus(500))
 });
 
 router.get('/:id', (req, res) => {
-    Post.findById(req.params.id)
+    Post.findById(req.params.id).populate('user')
         .then(result => {
             if (result) return res.send(result);
             res.sendStatus(404)
