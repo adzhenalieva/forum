@@ -48,22 +48,22 @@ const run = async () => {
 
     const comment = await Comment.create(
         {
-            text: 'Happy birthday!',
+            comment: 'Happy birthday!',
             user: user[1]._id,
             post: post[0]._id
         },
         {
-            text: 'Happy birthday, my best friend!',
+            comment: 'Happy birthday, my best friend!',
             user: user[0]._id,
             post: post[0]._id
         },
         {
-            text: 'So cool!',
+            comment: 'So cool!',
             user: user[0]._id,
             post: post[1]._id
         },
         {
-            text: 'So cool, yehhhhh!',
+            comment: 'So cool, yehhhhh!',
             user: user[1]._id,
             post: post[1]._id
         }
