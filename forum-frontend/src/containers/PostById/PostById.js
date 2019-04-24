@@ -13,13 +13,18 @@ class PostById extends Component {
         this.props.fetchComments(id);
     }
 
+    dateFormat = date => {
+        let d = new Date(date);
+
+        return d.toLocaleDateString('ru-GB') + '  ' + d.toLocaleTimeString();
+    };
 
     render() {
         let post = null;
         if (this.props.postId && this.props.postId.user) {
             post = <PostByIdItem
                 image={this.props.postId.image}
-                datetime={this.props.postId.datetime}
+                datetime={this.dateFormat(this.props.postId.datetime)}
                 user={this.props.postId.user.username}
                 description={this.props.postId.description}
                 title={this.props.postId.title}
