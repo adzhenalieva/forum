@@ -13,6 +13,12 @@ class AddPost extends Component {
         image: ''
     };
 
+    componentDidMount() {
+        if (!this.props.user) {
+            this.props.history.push('/');
+        }
+    };
+
     inputChangeHandler = event => {
         this.setState({
             [event.target.name]: event.target.value
@@ -61,7 +67,7 @@ class AddPost extends Component {
                     />
                     <FormElement
                         propertyName="description"
-                        title="Post description"
+                        title="Text"
                         type="text"
                         value={this.state.description}
                         onChange={this.inputChangeHandler}
@@ -74,7 +80,7 @@ class AddPost extends Component {
                         type="file"
                         onChange={this.fileChangeHandler}
                         error={this.fieldHasError('image')}
-                        />
+                    />
                     <FormGroup row>
                         <Col sm={{offset: 2, size: 10}}/>
                         <Button type="submit" color="primary">Send post</Button>
@@ -86,7 +92,8 @@ class AddPost extends Component {
 }
 
 const mapStateToProps = state => ({
-    error: state.post.error
+    error: state.post.error,
+    user: state.user.user
 });
 
 const mapDispatchToProps = dispatch => ({
