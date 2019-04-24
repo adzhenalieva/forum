@@ -8,6 +8,7 @@ import Toolbar from "./components/UI/Toolbar/Toolbar";
 import Register from "./containers/Register/Register";
 import Login from "./containers/Login/Login";
 import PostsBuilder from "./containers/PostsBuilder/PostsBuilder"
+import PostById from "./containers/PostById/PostById";
 
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
                         <Route path="/" exact component={PostsBuilder}/>
                         <Route path="/register" exact component={Register}/>
                         <Route path="/login" exact component={Login}/>
+                        <Route path="/posts/:id" component={PostById}/>
                         {/*<Route path="/new" exact component={AddPost}/>*/}
                     </Switch>
                 </Container>

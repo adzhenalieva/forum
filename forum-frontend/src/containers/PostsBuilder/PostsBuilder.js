@@ -23,9 +23,8 @@ class PostsBuilder extends Component {
                 {this.props.posts.map(post => (
                     <Posts
                         key={post._id}
-                        image={post.image}
                         datetime={post.datetime}
-                        user={post.user}
+                        user={post.user.username}
                         title={post.title}
                         onClick={() => this.getPost(post._id)}/>
                 ))}

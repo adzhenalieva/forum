@@ -28,7 +28,7 @@ export const registerUser = userData => {
     return dispatch => {
         return axios.post('/users', userData).then(
             (response) => {
-                dispatch(registerUserSuccess(response.data));
+                dispatch(registerUserSuccess(response.data.user));
                 dispatch(push('/'));
             },
             error => {
@@ -47,7 +47,7 @@ export const loginUser = userData => {
     return dispatch => {
         return axios.post('/users/sessions', userData).then(
             response => {
-                dispatch(loginUserSuccess(response.data));
+                dispatch(loginUserSuccess(response.data.user));
                 dispatch(push('/'));
             },
             error => {

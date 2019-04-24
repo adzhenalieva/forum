@@ -5,7 +5,8 @@ import {apiURL} from "../../constants";
 const styles = {
     width: '150px',
     height: '150px',
-    marginBottom: '20px'
+    margin: '20px',
+    float: 'left'
 };
 
 const PostsThumbnail = props => {

@@ -1,19 +1,20 @@
 import React from 'react';
-import {Col, Row, Card, CardBody, CardTitle, Button} from "reactstrap";
+import {Col, Row, Card, CardBody, CardTitle, CardText} from "reactstrap";
 
 import PostsThumbnail from "../PostsThumbnail/PostsThumbnail";
 
-const Posts = props => {
+const PostByIdItem = props => {
     return (
         <Row>
             <Col xs="6">
                 <Card color="info" className="mb-5">
                     <CardBody>
                         <PostsThumbnail image={props.image}/>
+                        <p><strong>Title: </strong>{props.title}</p>
                         <p><strong>Date: </strong>{props.datetime}</p>
-                       <p><strong>Title: </strong>{props.title}</p>
                         <CardTitle><strong>{props.user}</strong></CardTitle>
-                        <Button color="primary" onClick={props.onClick}>More...</Button>
+                        <CardText>{props.description}</CardText>
+
                     </CardBody>
                 </Card>
             </Col>
@@ -21,4 +22,4 @@ const Posts = props => {
     );
 };
 
-export default Posts;
+export default PostByIdItem;
