@@ -6,6 +6,7 @@ const nanoid = require('nanoid');
 const Post = require('../models/Post');
 const auth = require('../middleware/auth');
 
+
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, config.uploadPath);
@@ -39,9 +40,11 @@ router.post('/', upload.single('image'), auth, (req, res) => {
     if (req.file) {
         postData.image = req.file.filename;
     }
+    postData.user = req.user._id;
+    postData.datetime = new Date().toISOString();
+
     const post = new Post(postData);
-    post.user = req.user._id;
-    post.datetime = new Date().toISOString();
+
     post.save()
         .then(result => res.send(result))
         .catch(error => res.status(400).send(error));
