@@ -34,14 +34,14 @@ const run = async () => {
             title: 'My birthday',
             description: 'I was born on the 22nd of March. Birthday is a very remarkable day for me.It is spring and the weather is fine. ',
             image: 'birthday.jpg',
-            datetime: 2018,
+            datetime: "2019-04-05T14:48:00.000Z",
             user: user[0]._id
         },
         {
             title: 'My trip',
             description: 'I still remember the first trip to the beach that I took with my close friends. Two years ago, my friends and I went to Tamarindo Beach to rest and enjoy our vacation together. ',
             image: 'trip.jpg',
-            datetime: 2017,
+            datetime:  "2019-04-05T14:48:00.000Z",
             user: user[1]._id
         }
     );
