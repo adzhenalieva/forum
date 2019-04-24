@@ -13,16 +13,20 @@ const PostSchema = new Schema({
         required: true
     },
     description: {
-        String,
+        type: String,
         required: function () {
-            return this.image === null;
+            return this.image === undefined;
         }
     },
     image: {
-        String,
+        type: String,
         required: function () {
-            return this.description === null;
+            return this.description === undefined;
         }
+    },
+    datetime: {
+        type: String,
+        required: true
     }
 });
 

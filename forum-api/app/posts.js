@@ -20,7 +20,7 @@ const upload = multer({storage});
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    Post.find()
+    Post.find().sort({datetime: 1})
         .then(posts => {res.send(posts)})
         .catch(() => res.sendStatus(500))
 });
@@ -41,9 +41,10 @@ router.post('/', upload.single('image'), auth, (req, res) => {
     }
     const post = new Post(postData);
     post.user = req.user._id;
+    post.datetime = new Date().toISOString();
     post.save()
         .then(result => res.send(result))
-        .catch(error => res.sendStatus(400).send(error));
+        .catch(error => res.status(400).send(error));
 });
 
 
