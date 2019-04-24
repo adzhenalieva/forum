@@ -16,6 +16,12 @@ class PostsBuilder extends Component {
         })
     };
 
+    dateFormat = date => {
+        let d = new Date(date);
+
+        return d.toLocaleDateString('ru-GB') + '  ' + d.toLocaleTimeString();
+    };
+
     render() {
         return (
             <Fragment>
@@ -23,7 +29,7 @@ class PostsBuilder extends Component {
                 {this.props.posts.map(post => (
                     <Posts
                         key={post._id}
-                        datetime={post.datetime}
+                        datetime={this.dateFormat(post.datetime)}
                         user={post.user.username}
                         image={post.image}
                         title={post.title}
