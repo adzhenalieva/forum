@@ -7,6 +7,7 @@ import Container from "reactstrap/es/Container";
 import Toolbar from "./components/UI/Toolbar/Toolbar";
 import Register from "./containers/Register/Register";
 import Login from "./containers/Login/Login";
+import PostsBuilder from "./containers/PostsBuilder/PostsBuilder"
 
 
 class App extends Component {
@@ -21,9 +22,10 @@ class App extends Component {
                 </header>
                 <Container className="mt-5">
                     <Switch>
-                        {/*<Route path="/" exact component={ForumBuilder}/>*/}
+                        <Route path="/" exact component={PostsBuilder}/>
                         <Route path="/register" exact component={Register}/>
                         <Route path="/login" exact component={Login}/>
+                        {/*<Route path="/new" exact component={AddPost}/>*/}
                     </Switch>
                 </Container>
             </Fragment>
