@@ -25,6 +25,7 @@ class PostsBuilder extends Component {
                         key={post._id}
                         datetime={post.datetime}
                         user={post.user.username}
+                        image={post.image}
                         title={post.title}
                         onClick={() => this.getPost(post._id)}/>
                 ))}

@@ -1,5 +1,6 @@
 import React from "react";
 import {apiURL} from "../../constants";
+import MessageImg from "../../assets/images/message.jpeg";
 
 
 const styles = {
@@ -14,10 +15,13 @@ const PostsThumbnail = props => {
     let image = null;
 
     if (props.image) {
-        image = apiURL + '/upload/' + props.image;
-        return <img src={image} style={styles} className="img-thumbnail" alt="newsImage" />
+        image = apiURL + '/uploads/' + props.image;
+        return <img src={image} style={styles} className="img-thumbnail" alt="postImage" />
+    } else {
+        return <img src={MessageImg} style={styles} className="img-thumbnail" alt="postImage" />
     }
-    return null;
+
+
 
 };
 

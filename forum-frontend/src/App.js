@@ -9,6 +9,7 @@ import Register from "./containers/Register/Register";
 import Login from "./containers/Login/Login";
 import PostsBuilder from "./containers/PostsBuilder/PostsBuilder"
 import PostById from "./containers/PostById/PostById";
+import AddPost from "./components/AddPost/AddPost";
 
 
 class App extends Component {
@@ -21,13 +22,14 @@ class App extends Component {
                         logout={this.props.logOutUser}
                     />
                 </header>
-                <Container className="mt-5">
+                <Container className="my-5">
                     <Switch>
                         <Route path="/" exact component={PostsBuilder}/>
                         <Route path="/register" exact component={Register}/>
                         <Route path="/login" exact component={Login}/>
+                        <Route path="/posts/new" exact component={AddPost}/>
                         <Route path="/posts/:id" component={PostById}/>
-                        {/*<Route path="/new" exact component={AddPost}/>*/}
+
                     </Switch>
                 </Container>
             </Fragment>

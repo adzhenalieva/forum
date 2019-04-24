@@ -5,17 +5,13 @@ import {NavLink as RouterNavLink} from "react-router-dom";
 const UserMenu = ({user, logout}) => (
     <Fragment>
         <NavItem>
-            <NavLink tag={RouterNavLink} to="/new" exact>Add new post</NavLink>
+            <NavLink tag={RouterNavLink} to="/posts/new" exact>Add new post</NavLink>
         </NavItem>
         <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret>
                 Hello, {user.username}
             </DropdownToggle>
             <DropdownMenu right>
-                <DropdownItem>
-                    Show profile
-                </DropdownItem>
-                <DropdownItem divider/>
                 <DropdownItem onClick={logout}>
                     Log out
                 </DropdownItem>
