@@ -1,8 +1,12 @@
 import React, {Fragment} from 'react';
 import {DropdownItem, DropdownMenu, DropdownToggle, NavItem, NavLink, UncontrolledDropdown} from "reactstrap";
+import {NavLink as RouterNavLink} from "react-router-dom";
 
 const UserMenu = ({user, logout}) => (
     <Fragment>
+        <NavItem>
+            <NavLink tag={RouterNavLink} to="/new" exact>Add new post</NavLink>
+        </NavItem>
         <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret>
                 Hello, {user.username}
