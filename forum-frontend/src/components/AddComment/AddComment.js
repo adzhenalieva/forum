@@ -29,7 +29,6 @@ class AddComment extends Component {
     render() {
         return (
             <Fragment>
-                <h2 className="mb-4">Leave your comment</h2>
                 {this.props.error && this.props.error.global && (
                     <Alert color="danger">
                         This is a danger alert — check it out!

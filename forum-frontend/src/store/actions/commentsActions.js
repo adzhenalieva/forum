@@ -1,5 +1,4 @@
 import axios from "../../axios-api";
-import {push} from "connected-react-router";
 
 export const FETCH_COMMENTS_SUCCESS = 'FETCH_COMMENTS_SUCCESS';
 export const FETCH_COMMENTS_FAILURE = "FETCH_POSTS_FAILURE";

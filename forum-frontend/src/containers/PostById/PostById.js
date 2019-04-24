@@ -38,7 +38,8 @@ class PostById extends Component {
                         comment={comment.comment}
                         onClick={() => this.getPost(post._id)}/>
                 ))}
-                <AddComment/>
+                {this.props.user ?  <AddComment/> : <p>You should login to be able to leave comments</p> }
+
             </Fragment>
         );
     }
@@ -47,7 +48,8 @@ class PostById extends Component {
 const mapStateToProps = state => {
     return {
         postId: state.post.postId,
-        comments: state.comments.comments
+        comments: state.comments.comments,
+        user: state.user.user
     }
 };
 
