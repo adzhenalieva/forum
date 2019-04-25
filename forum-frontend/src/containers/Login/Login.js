@@ -22,14 +22,14 @@ class Login extends Component {
         this.props.loginUser({...this.state})
     };
 
+
     render() {
         return (
             <Fragment>
                 <h2 className="mb-4">Login</h2>
-
-                {this.props.error && (
+                {this.props.error && this.props.error.global && (
                     <Alert color="danger">
-                        {this.props.error.error || this.props.error.global}
+                        Check internet connection!
                     </Alert>
                 )}
                 <Form onSubmit={this.submitFormHandler}>

@@ -7,6 +7,7 @@ import {sendPost} from "../../store/actions/postActions";
 
 
 class AddPost extends Component {
+
     state = {
         title: '',
         description: '',
@@ -17,7 +18,7 @@ class AddPost extends Component {
         if (!this.props.user) {
             this.props.history.push('/');
         }
-    };
+    }
 
     inputChangeHandler = event => {
         this.setState({

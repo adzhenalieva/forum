@@ -3,6 +3,7 @@ import {Switch, Route, withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {logOutUser} from "./store/actions/userActions";
 import Container from "reactstrap/es/Container";
+import {NotificationContainer} from "react-notifications";
 
 import Toolbar from "./components/UI/Toolbar/Toolbar";
 import Register from "./containers/Register/Register";
@@ -12,10 +13,12 @@ import PostById from "./containers/PostById/PostById";
 import AddPost from "./components/AddPost/AddPost";
 
 
+
 class App extends Component {
     render() {
         return (
             <Fragment>
+                <NotificationContainer/>
                 <header>
                     <Toolbar
                         user={this.props.user}

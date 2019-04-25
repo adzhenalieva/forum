@@ -1,5 +1,6 @@
 import axios from '../../axios-api';
 import {push} from 'connected-react-router';
+import {NotificationManager} from 'react-notifications';
 
 export const REGISTER_USER_SUCCESS = "REGISTER_USER_SUCCESS";
 export const REGISTER_USER_FAILURE = "REGISTER_USER_FAILURE";
@@ -22,6 +23,7 @@ export const registerUser = userData => {
         return axios.post('/users', userData).then(
             (response) => {
                 dispatch(registerUserSuccess(response.data.user));
+                NotificationManager.success('Registered successfuly');
                 dispatch(push('/'));
             },
             error => {
@@ -30,7 +32,6 @@ export const registerUser = userData => {
                 } else {
                     dispatch(registerUserFailure({global: 'No connection'}))
                 }
-
             }
         )
     }
@@ -41,6 +42,7 @@ export const loginUser = userData => {
         return axios.post('/users/sessions', userData).then(
             response => {
                 dispatch(loginUserSuccess(response.data.user));
+                NotificationManager.success('Logged in!');
                 dispatch(push('/'));
             },
             error => {
@@ -63,7 +65,13 @@ export const logOutUser = () => {
         return axios.delete('/users/sessions', {headers}).then(
             response => {
                 dispatch({type: LOGOUT_USER});
-                dispatch(push('/'))
+                NotificationManager.success('Logged out');
+                dispatch(push('/'));
+
+
+            },
+            error => {
+                NotificationManager.error('Could not logout!')
             }
         )
     }

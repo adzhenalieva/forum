@@ -6,6 +6,7 @@ import FormElement from "../../components/UI/Form/FormElement";
 import {sendComment} from "../../store/actions/commentsActions";
 
 class AddComment extends Component {
+    
     state = {
         comment: ''
     };

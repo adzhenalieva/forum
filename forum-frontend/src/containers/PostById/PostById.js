@@ -43,7 +43,7 @@ class PostById extends Component {
                         comment={comment.comment}
                         onClick={() => this.getPost(post._id)}/>
                 ))}
-                {this.props.user ?  <AddComment/> : <p>You should login to be able to leave comments</p> }
+                {this.props.user ?  <AddComment/> : <h3>You should login to be able to leave comments</h3> }
 
             </Fragment>
         );

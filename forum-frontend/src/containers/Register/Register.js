@@ -31,7 +31,7 @@ class Register extends Component {
                 <h2 className="mb-4">Register new user</h2>
                 {this.props.error && this.props.error.global && (
                     <Alert color="danger">
-                        This is a danger alert — check it out!
+                        Check internet connection!
                     </Alert>
                 )}
                 <Form onSubmit={this.submitFormHandler}>
