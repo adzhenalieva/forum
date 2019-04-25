@@ -46,7 +46,7 @@ const run = async () => {
         }
     );
 
-    const comment = await Comment.create(
+    await Comment.create(
         {
             comment: 'Happy birthday!',
             user: user[1]._id,
