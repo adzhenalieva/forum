@@ -15,13 +15,13 @@ const PostSchema = new Schema({
     description: {
         type: String,
         required: function () {
-            return this.image === undefined || this.image === '';
+            return this.image === '';
         }
     },
     image: {
         type: String,
         required: function () {
-            return this.description === undefined || this.description === '';
+            return this.description === '';
         }
     },
     datetime: {

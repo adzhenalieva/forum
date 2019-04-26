@@ -5,7 +5,7 @@ const auth = require('../middleware/auth');
 const router = express.Router();
 
 router.get('/:post_id', (req, res) => {
-    Comment.find({post: req.params.post_id}).populate('user')
+    Comment.find({post: req.params.post_id}).populate('user').sort({datetime: -1})
         .then(result => {
             if (result) return res.send(result);
             res.sendStatus(404)
@@ -18,7 +18,8 @@ router.post('/', auth, async (req, res) => {
     const comment = await new Comment({
         comment: req.body.comment,
         user: req.user._id,
-        post: req.body.post
+        post: req.body.post,
+        datetime: new Date().toISOString()
     });
 
     comment.save()

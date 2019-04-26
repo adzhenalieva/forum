@@ -50,22 +50,26 @@ const run = async () => {
         {
             comment: 'Happy birthday!',
             user: user[1]._id,
-            post: post[0]._id
+            post: post[0]._id,
+            datetime: "2019-04-05T12:48:00.000Z"
         },
         {
             comment: 'Happy birthday, my best friend!',
             user: user[0]._id,
-            post: post[0]._id
+            post: post[0]._id,
+            datetime: "2019-04-05T10:48:00.000Z"
         },
         {
             comment: 'So cool!',
             user: user[0]._id,
-            post: post[1]._id
+            post: post[1]._id,
+            datetime: "2019-04-05T14:49:00.000Z"
         },
         {
             comment: 'So cool, yehhhhh!',
             user: user[1]._id,
-            post: post[1]._id
+            post: post[1]._id,
+            datetime: "2019-04-05T15:48:00.000Z"
         }
     );
 
