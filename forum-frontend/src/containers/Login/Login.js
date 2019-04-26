@@ -39,6 +39,7 @@ class Login extends Component {
                         type="text"
                         value={this.state.username}
                         onChange={this.inputChangeHandler}
+                        error={this.props.error}
                         placeholder="Enter username you registered with"
                         autoComplete="current-username"
                     />
@@ -48,6 +49,7 @@ class Login extends Component {
                         type="password"
                         value={this.state.password}
                         onChange={this.inputChangeHandler}
+                        error={this.props.error}
                         placeholder="Enter your password"
                         autoComplete="current-password"
                     />

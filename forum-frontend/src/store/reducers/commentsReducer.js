@@ -1,4 +1,9 @@
-import {FETCH_COMMENTS_FAILURE, FETCH_COMMENTS_SUCCESS} from "../actions/commentsActions";
+import {
+    FETCH_COMMENTS_FAILURE,
+    FETCH_COMMENTS_SUCCESS,
+    SEND_COMMENTS_FAILURE,
+    SEND_COMMENTS_SUCCESS
+} from "../actions/commentsActions";
 
 
 const initialState = {
@@ -12,12 +17,23 @@ const commentsReducer = (state = initialState, action) => {
         case FETCH_COMMENTS_SUCCESS:
             return {
                 ...state,
-                comments: action.data
+                comments: action.data,
+                error: null
             };
         case FETCH_COMMENTS_FAILURE:
             return {
                 ...state,
                 error: action.error
+            };
+        case SEND_COMMENTS_FAILURE:
+            return {
+                ...state,
+                error: action.error + '. Field comment is required.'
+            };
+        case SEND_COMMENTS_SUCCESS:
+            return {
+                ...state,
+                error: null
             };
         default:
             return state;

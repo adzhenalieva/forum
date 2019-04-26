@@ -1,8 +1,8 @@
 import {LOGIN_USER_FAILURE, LOGIN_USER_SUCCESS, LOGOUT_USER, REGISTER_USER_FAILURE, REGISTER_USER_SUCCESS} from "../actions/userActions";
 
 const initialState = {
-    user: null,
     loginError: null,
+    user: null,
     registerError: null
 };
 

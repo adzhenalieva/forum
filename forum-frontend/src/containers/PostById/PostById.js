@@ -1,10 +1,12 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from "react-redux";
+
 import {fetchPostsId} from "../../store/actions/postActions";
-import PostByIdItem from "../../components/PostByIdItem/PostByIdItem";
 import {fetchComments} from "../../store/actions/commentsActions";
+
 import Comments from "../../components/Comments/Comments";
 import AddComment from "../../components/AddComment/AddComment";
+import PostByIdItem from "../../components/PostByIdItem/PostByIdItem";
 
 class PostById extends Component {
     componentDidMount() {
@@ -15,7 +17,6 @@ class PostById extends Component {
 
     dateFormat = date => {
         let d = new Date(date);
-
         return d.toLocaleDateString('ru-GB') + '  ' + d.toLocaleTimeString();
     };
 
@@ -40,6 +41,7 @@ class PostById extends Component {
                     <Comments
                         key={comment._id}
                         user={comment.user.username}
+                        datetime={this.dateFormat(comment.datetime)}
                         comment={comment.comment}
                         onClick={() => this.getPost(post._id)}/>
                 ))}

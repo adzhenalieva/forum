@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
-import {Form, FormGroup, Col, Button, Alert} from "reactstrap";
 import {connect} from "react-redux";
+import {Form, FormGroup, Col, Button, Alert} from "reactstrap";
+
 import {registerUser} from "../../store/actions/userActions";
 import FormElement from "../../components/UI/Form/FormElement";
 

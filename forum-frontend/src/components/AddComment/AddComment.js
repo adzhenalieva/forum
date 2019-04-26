@@ -1,9 +1,11 @@
 import React, {Component, Fragment} from 'react';
-import {Form, FormGroup, Col, Button, Alert} from "reactstrap";
 import {connect} from "react-redux";
+import {Form, FormGroup, Col, Button, Alert} from "reactstrap";
+
+import {sendComment} from "../../store/actions/commentsActions";
 
 import FormElement from "../../components/UI/Form/FormElement";
-import {sendComment} from "../../store/actions/commentsActions";
+
 
 class AddComment extends Component {
     
@@ -23,16 +25,13 @@ class AddComment extends Component {
         this.setState({comment: ''});
     };
 
-    fieldHasError = fieldName => {
-        return this.props.error && this.props.error.errors && this.props.error.errors[fieldName] && this.props.error.errors[fieldName].message;
-    };
 
     render() {
         return (
             <Fragment>
                 {this.props.error && this.props.error.global && (
                     <Alert color="danger">
-                        This is a danger alert — check it out!
+                        Check internet connection
                     </Alert>
                 )}
                 <Form onSubmit={this.submitFormHandler}>
@@ -43,7 +42,7 @@ class AddComment extends Component {
                         type="text"
                         value={this.state.comment}
                         onChange={this.inputChangeHandler}
-                        error={this.fieldHasError('comment')}
+                        error={this.props.error}
                         placeholder="Leave your comment"
                     />
                     <FormGroup row>

@@ -1,9 +1,10 @@
 import React, {Component, Fragment} from 'react';
 import {Switch, Route, withRouter} from "react-router-dom";
 import {connect} from "react-redux";
-import {logOutUser} from "./store/actions/userActions";
 import Container from "reactstrap/es/Container";
 import {NotificationContainer} from "react-notifications";
+
+import {logOutUser} from "./store/actions/userActions";
 
 import Toolbar from "./components/UI/Toolbar/Toolbar";
 import Register from "./containers/Register/Register";

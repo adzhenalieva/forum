@@ -54,7 +54,6 @@ export const sendPost = postData => {
             error => {
                 if (error.response && error.response.data) {
                     dispatch(sendPostsFailure(error.response.data));
-                    NotificationManager.error('Error');
                 } else {
                     dispatch(sendPostsFailure({global: 'No connection'}))
                 }

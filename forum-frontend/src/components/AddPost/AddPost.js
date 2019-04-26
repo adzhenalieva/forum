@@ -1,9 +1,11 @@
 import React, {Component, Fragment} from 'react';
-import {Form, FormGroup, Col, Button, Alert} from "reactstrap";
 import {connect} from "react-redux";
+import {Form, FormGroup, Col, Button, Alert} from "reactstrap";
+
+import {sendPost} from "../../store/actions/postActions";
 
 import FormElement from "../../components/UI/Form/FormElement";
-import {sendPost} from "../../store/actions/postActions";
+
 
 
 class AddPost extends Component {
@@ -52,7 +54,7 @@ class AddPost extends Component {
             <Fragment>
                 {this.props.error && this.props.error.global && (
                     <Alert color="danger">
-                        This is a danger alert — check it out!
+                        Check the internet connection
                     </Alert>
                 )}
                 <Form onSubmit={this.submitFormHandler}>

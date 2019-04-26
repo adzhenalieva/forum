@@ -6,7 +6,7 @@ export const REGISTER_USER_SUCCESS = "REGISTER_USER_SUCCESS";
 export const REGISTER_USER_FAILURE = "REGISTER_USER_FAILURE";
 
 export const LOGIN_USER_SUCCESS = "LOGIN_USER_SUCCESS";
-export const LOGIN_USER_FAILURE = "LOGIN_USER_SUCCESS";
+export const LOGIN_USER_FAILURE = "LOGIN_USER_FAILURE";
 
 export const LOGOUT_USER = "LOGOUT_USER";
 
@@ -46,8 +46,8 @@ export const loginUser = userData => {
                 dispatch(push('/'));
             },
             error => {
-                if(error.response && error.response.data){
-                    dispatch(loginUserFailure(error.response.data))
+                if(error){
+                    dispatch(loginUserFailure(error.response.data.error));
                 } else {
                     dispatch(loginUserFailure({global: 'No connection'}))
                 }
@@ -67,8 +67,6 @@ export const logOutUser = () => {
                 dispatch({type: LOGOUT_USER});
                 NotificationManager.success('Logged out');
                 dispatch(push('/'));
-
-
             },
             error => {
                 NotificationManager.error('Could not logout!')
