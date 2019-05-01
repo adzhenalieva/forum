@@ -5,7 +5,10 @@ const auth = require('../middleware/auth');
 const router = express.Router();
 
 router.get('/:post_id', (req, res) => {
-    Comment.find({post: req.params.post_id}).populate('user').sort({datetime: -1})
+    Comment.find({post: req.params.post_id}).populate({
+        path: 'user',
+        select: {username: 'username', _id: '_id'}
+    }).sort({datetime: -1})
         .then(result => {
             if (result) return res.send(result);
             res.sendStatus(404)
